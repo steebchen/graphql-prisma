@@ -24,5 +24,5 @@ func (r *Resolver) Mutation() gqlgen.MutationResolver {
 }
 
 func (r *Resolver) Query() gqlgen.QueryResolver {
-	return &query.Resolver{r.Resolver}
+	return &query.Resolver{Resolver: r.Resolver}
 }
