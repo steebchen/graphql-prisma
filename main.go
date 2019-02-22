@@ -6,9 +6,9 @@ import (
 	"os"
 
 	"github.com/99designs/gqlgen/handler"
-	"github.com/robojones/graphql/api"
-	"github.com/robojones/graphql/gqlgen"
-	"github.com/robojones/graphql/prisma"
+	"github.com/steebchen/graphql/api"
+	"github.com/steebchen/graphql/gqlgen"
+	"github.com/steebchen/graphql/prisma"
 )
 
 const defaultPort = "4000"

@@ -8,4 +8,4 @@ exec:
   filename: gqlgen/gqlgen.go
 models:
   User:
-    model: github.com/robojones/graphql/prisma.User
+    model: github.com/steebchen/graphql/prisma.User

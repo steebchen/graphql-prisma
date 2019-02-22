@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/robojones/graphql/api/query"
-	"github.com/robojones/graphql/api/super"
-	"github.com/robojones/graphql/gqlgen"
-	"github.com/robojones/graphql/prisma"
+	"github.com/steebchen/graphql/api/query"
+	"github.com/steebchen/graphql/api/super"
+	"github.com/steebchen/graphql/gqlgen"
+	"github.com/steebchen/graphql/prisma"
 )
 
 func New(client *prisma.Client) *Resolver {

@@ -1,6 +1,6 @@
 package super
 
-import "github.com/robojones/graphql/prisma"
+import "github.com/steebchen/graphql/prisma"
 
 type Resolver struct {
 	Prisma *prisma.Client
