@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/steebchen/graphql/lib/auth"
+	"github.com/steebchen/graphql/lib/handler_adapter"
 	"log"
 	"net/http"
 	"os"
@@ -9,8 +11,6 @@ import (
 	"github.com/steebchen/graphql/api"
 	"github.com/steebchen/graphql/gqlgen"
 	"github.com/steebchen/graphql/prisma"
-	"github.com/steebchen/graphql/server/auth"
-	"github.com/steebchen/graphql/server/handler_adapter"
 )
 
 const defaultPort = "4000"

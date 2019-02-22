@@ -2,8 +2,8 @@ package session_cookie
 
 import (
 	"context"
+	"github.com/steebchen/graphql/lib/session_context"
 	"github.com/steebchen/graphql/prisma"
-	"github.com/steebchen/graphql/server/session_context"
 	"net/http"
 	"time"
 )

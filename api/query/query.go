@@ -3,8 +3,8 @@ package query
 import (
 	"context"
 	"github.com/steebchen/graphql/api/super"
+	"github.com/steebchen/graphql/lib/session_context"
 	"github.com/steebchen/graphql/prisma"
-	"github.com/steebchen/graphql/server/session_context"
 )
 
 type Resolver struct {

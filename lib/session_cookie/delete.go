@@ -2,7 +2,7 @@ package session_cookie
 
 import (
 	"context"
-	"github.com/steebchen/graphql/server/session_context"
+	"github.com/steebchen/graphql/lib/session_context"
 	"net/http"
 )
 

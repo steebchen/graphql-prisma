@@ -2,9 +2,9 @@ package mutation
 
 import (
 	"context"
+	"github.com/steebchen/graphql/lib/auth"
+	"github.com/steebchen/graphql/lib/session_cookie"
 	"github.com/steebchen/graphql/prisma"
-	"github.com/steebchen/graphql/server/auth"
-	"github.com/steebchen/graphql/server/session_cookie"
 )
 
 func (m *Mutation) Login(ctx context.Context, email string, password string) (prisma.User, error) {
