@@ -1,3 +1,4 @@
 gqlgen/gqlgen.go
+gqlgen/models.go
 prisma/prisma.go
 vendor/
