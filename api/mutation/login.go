@@ -7,17 +7,22 @@ import (
 	"github.com/steebchen/graphql/prisma"
 )
 
+var UserNotFoundError = errors.New("user not found")
+
 func (m *Mutation) Login(ctx context.Context, email string, password string) (prisma.User, error) {
 	user, err := m.Prisma.User(prisma.UserWhereUniqueInput{
 		Email: &email,
 	}).Exec(ctx)
 
 	if err != nil {
-		return *user, err
+		return prisma.User{}, err
+	}
+
+	if user == nil {
+		return prisma.User{}, UserNotFoundError
 	}
 
 	// TODO: verify password
-	// TODO: handle user == nil
 
 	session, err := m.Prisma.CreateSession(prisma.SessionCreateInput{
 		User: prisma.UserCreateOneWithoutSessionsInput{
