@@ -35,11 +35,11 @@ func (a *Auth) Signup(ctx context.Context, email string, name string, password s
 		PasswordHash: hashPassword(password),
 	}).Exec(ctx)
 
-	if err.Error() == duplicateEmailErrorMessage {
-		return gqlgen.LoginResult{}, DuplicateEmailError
-	}
-
 	if err != nil {
+		if err.Error() == duplicateEmailErrorMessage {
+			return gqlgen.LoginResult{}, DuplicateEmailError
+		}
+
 		panic(err)
 	}
 
