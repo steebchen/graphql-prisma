@@ -2,16 +2,28 @@ package auth
 
 import (
 	"context"
-	"github.com/pkg/errors"
 	"github.com/steebchen/graphql/gqlgen"
 	"github.com/steebchen/graphql/lib/auth"
 	"github.com/steebchen/graphql/lib/session_cookie"
 	"github.com/steebchen/graphql/prisma"
+	"github.com/vektah/gqlparser/gqlerror"
 	"golang.org/x/crypto/bcrypt"
 )
 
-var UserNotFoundError = errors.New("user not found")
-var IncorrectPasswordError = errors.New("password is incorrect")
+var UserNotFoundError = &gqlerror.Error{
+	Message: "user not found",
+	Extensions: map[string]interface{}{
+		"type": "Auth",
+		"code": "UserNotFound",
+	},
+}
+var IncorrectPasswordError = &gqlerror.Error{
+	Message: "password is incorrect",
+	Extensions: map[string]interface{}{
+		"type": "Auth",
+		"code": "PasswordIncorrect",
+	},
+}
 
 func (a *Auth) Login(ctx context.Context, email string, password string) (gqlgen.LoginResult, error) {
 	user, err := a.Prisma.User(prisma.UserWhereUniqueInput{
