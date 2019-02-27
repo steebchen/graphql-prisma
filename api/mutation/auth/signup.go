@@ -1,10 +1,10 @@
-package mutation
+package auth
 
 import (
 	"context"
 	"github.com/pkg/errors"
-	"github.com/robojones/graphql/gqlgen"
-	"github.com/robojones/graphql/prisma"
+	"github.com/steebchen/graphql/gqlgen"
+	"github.com/steebchen/graphql/prisma"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -22,8 +22,8 @@ func hashPassword(password string) string {
 	return string(hash)
 }
 
-func (m *Mutation) Signup(ctx context.Context, email string, name string, password string) (gqlgen.LoginResult, error) {
-	_, err := m.Prisma.CreateUser(prisma.UserCreateInput{
+func (a *Auth) Signup(ctx context.Context, email string, name string, password string) (gqlgen.LoginResult, error) {
+	_, err := a.Prisma.CreateUser(prisma.UserCreateInput{
 		Name:         name,
 		Email:        email,
 		PasswordHash: hashPassword(password),
@@ -37,5 +37,5 @@ func (m *Mutation) Signup(ctx context.Context, email string, name string, passwo
 		panic(err)
 	}
 
-	return m.Login(ctx, email, password)
+	return a.Login(ctx, email, password)
 }
