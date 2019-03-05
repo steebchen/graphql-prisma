@@ -2,6 +2,8 @@
 
 This example shows how to implement a **GraphQL server with Golang** based on Prisma & [gqlgen](https://github.com/99designs/gqlgen).
 
+**For an advanced fork with go modules, DI, and more, see https://github.com/robojones/graphql**
+
 ## How to use
 
 ### 1. Download example & install dependencies
